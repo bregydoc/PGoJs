@@ -74,3 +74,6 @@ export GOPATH=$HOME/goWork #The path of your GOPATH
 $GOPATH/bin/gopherjs build nameOfSketch.go -o sketch.js
 ```
 I usually create an .sh file with these parameters, and build in only one step.
+
+### The last step is open your HTML File with your web navigator
+![Sketch writing in golang](/PGoJs.png)
