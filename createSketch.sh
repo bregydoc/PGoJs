@@ -2,4 +2,4 @@
 
 export GOPATH=$HOME/goLibraries
 
-/home/bregy/goLibraries/bin/gopherjs build realSketch.go -o sketch.js
+$GOPATH/bin/gopherjs build realSketch.go -o sketch.js

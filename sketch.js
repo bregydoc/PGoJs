@@ -7700,7 +7700,7 @@ $packages["reflect"] = (function() {
 	return $pkg;
 })();
 $packages["./Processing"] = (function() {
-	var $pkg = {}, $init, js, reflect, Event, PVector, ptrType, funcType, mapType, funcType$1, ptrType$1, funcType$2, ptrType$2, sliceType, sliceType$1, pG, CreateCanvas, Background, NoStroke, Stroke, StrokeWeight, Line, CreateVector, LaunchApp;
+	var $pkg = {}, $init, js, reflect, Event, funcType, mapType, funcType$1, ptrType$1, funcType$2, ptrType$2, pG, CreateCanvas, Background, NoStroke, Stroke, StrokeWeight, Line, LaunchApp;
 	js = $packages["github.com/gopherjs/gopherjs/js"];
 	reflect = $packages["reflect"];
 	Event = $pkg.Event = $newType(0, $kindStruct, "processing.Event", true, "./Processing", true, function(data_) {
@@ -7711,29 +7711,12 @@ $packages["./Processing"] = (function() {
 		}
 		this.data = data_;
 	});
-	PVector = $pkg.PVector = $newType(0, $kindStruct, "processing.PVector", true, "./Processing", true, function(data_, X_, Y_, Z_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.data = null;
-			this.X = 0;
-			this.Y = 0;
-			this.Z = 0;
-			return;
-		}
-		this.data = data_;
-		this.X = X_;
-		this.Y = Y_;
-		this.Z = Z_;
-	});
-	ptrType = $ptrType(PVector);
 	funcType = $funcType([], [], false);
 	mapType = $mapType($String, $emptyInterface);
 	funcType$1 = $funcType([$emptyInterface], [], false);
 	ptrType$1 = $ptrType(js.Object);
 	funcType$2 = $funcType([ptrType$1], [], false);
 	ptrType$2 = $ptrType(Event);
-	sliceType = $sliceType($emptyInterface);
-	sliceType$1 = $sliceType($Float64);
 	CreateCanvas = function(width, height) {
 		var $ptr, height, width;
 		pG.createCanvas(width, height);
@@ -7800,252 +7783,6 @@ $packages["./Processing"] = (function() {
 		return $assertType((_entry = event.data[$String.keyFor("delta")], _entry !== undefined ? _entry.v : $ifaceNil), $Float64);
 	};
 	Event.prototype.Delta = function() { return this.$val.Delta(); };
-	CreateVector = function(cord) {
-		var $ptr, _1, cord, r;
-		r = null;
-		switch (0) { default:
-			_1 = cord.$length;
-			if (_1 === (0)) {
-				r = pG.createVector();
-				break;
-			} else if (_1 === (1)) {
-				r = pG.createVector((0 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 0]));
-				break;
-			} else if (_1 === (2)) {
-				r = pG.createVector((0 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 0]), (1 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 1]));
-				break;
-			} else if (_1 === (3)) {
-				r = pG.createVector((0 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 0]), (1 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 1]), (2 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 2]));
-				break;
-			} else {
-				r = null;
-				console.log("Error in createVector function (1)");
-				break;
-			}
-		}
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-	};
-	$pkg.CreateVector = CreateVector;
-	PVector.ptr.prototype.Add = function(x, other) {
-		var $ptr, _1, _r, _r$1, _r$2, _r$3, _v, other, r, v, x, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _1 = $f._1; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _v = $f._v; other = $f.other; r = $f.r; v = $f.v; x = $f.x; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		v = this;
-		r = null;
-			_1 = other.$length;
-			/* */ if (_1 === (0)) { $s = 2; continue; }
-			/* */ if (_1 === (1)) { $s = 3; continue; }
-			/* */ if (_1 === (2)) { $s = 4; continue; }
-			/* */ $s = 5; continue;
-			/* if (_1 === (0)) { */ case 2:
-				_r = reflect.TypeOf(x).Kind(); /* */ $s = 11; case 11: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
-				if (_r === 14) { _v = true; $s = 10; continue s; }
-				_r$1 = reflect.TypeOf(x).Kind(); /* */ $s = 12; case 12: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
-				_v = _r$1 === 2; case 10:
-				/* */ if (_v) { $s = 7; continue; }
-				/* */ $s = 8; continue;
-				/* if (_v) { */ case 7:
-					_r$2 = reflect.TypeOf(x).Kind(); /* */ $s = 16; case 16: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
-					/* */ if (_r$2 === 14) { $s = 13; continue; }
-					_r$3 = reflect.TypeOf(x).Kind(); /* */ $s = 17; case 17: if($c) { $c = false; _r$3 = _r$3.$blk(); } if (_r$3 && _r$3.$blk !== undefined) { break s; }
-					/* */ if (_r$3 === 2) { $s = 14; continue; }
-					/* */ $s = 15; continue;
-					/* if (_r$2 === 14) { */ case 13:
-						r = v.data.add($assertType(x, $Float64));
-						$s = 15; continue;
-					/* } else if (_r$3 === 2) { */ case 14:
-						r = v.data.add($assertType(x, $Int));
-					/* } */ case 15:
-					$s = 9; continue;
-				/* } else { */ case 8:
-					r = v.data.add($assertType(x, ptrType).data);
-				/* } */ case 9:
-				/* break; */ $s = 1; continue;
-				$s = 6; continue;
-			/* } else if (_1 === (1)) { */ case 3:
-				r = v.data.add($assertType(x, $Float64), $assertType((0 >= other.$length ? $throwRuntimeError("index out of range") : other.$array[other.$offset + 0]), $Float64));
-				/* break; */ $s = 1; continue;
-				$s = 6; continue;
-			/* } else if (_1 === (2)) { */ case 4:
-				r = v.data.add($assertType(x, $Float64), $assertType((0 >= other.$length ? $throwRuntimeError("index out of range") : other.$array[other.$offset + 0]), $Float64), $assertType((1 >= other.$length ? $throwRuntimeError("index out of range") : other.$array[other.$offset + 1]), $Float64));
-				/* break; */ $s = 1; continue;
-				$s = 6; continue;
-			/* } else { */ case 5:
-				r = null;
-				console.log("Error in add vector method (1)");
-				/* break; */ $s = 1; continue;
-			/* } */ case 6:
-		case 1:
-		v.X = $parseFloat(r.x);
-		v.Y = $parseFloat(r.y);
-		v.Z = $parseFloat(r.z);
-		$s = -1; return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-		/* */ } return; } if ($f === undefined) { $f = { $blk: PVector.ptr.prototype.Add }; } $f.$ptr = $ptr; $f._1 = _1; $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._v = _v; $f.other = other; $f.r = r; $f.v = v; $f.x = x; $f.$s = $s; $f.$r = $r; return $f;
-	};
-	PVector.prototype.Add = function(x, other) { return this.$val.Add(x, other); };
-	PVector.ptr.prototype.ToString = function() {
-		var $ptr, r, v;
-		v = this;
-		r = v.data.toString();
-		return $internalize(r, $String);
-	};
-	PVector.prototype.ToString = function() { return this.$val.ToString(); };
-	PVector.ptr.prototype.Set = function(cord) {
-		var $ptr, _1, cord, r, v;
-		v = this;
-		r = null;
-		switch (0) { default:
-			_1 = cord.$length;
-			if (_1 === (1)) {
-				r = v.data.set((0 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 0]));
-				break;
-			} else if (_1 === (2)) {
-				r = v.data.set((0 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 0]), (1 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 1]));
-				break;
-			} else if (_1 === (3)) {
-				r = v.data.set((0 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 0]), (1 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 1]), (2 >= cord.$length ? $throwRuntimeError("index out of range") : cord.$array[cord.$offset + 2]));
-				break;
-			} else {
-				r = null;
-				console.log("Error in set (PVector) function (1)");
-				break;
-			}
-		}
-		v.X = $parseFloat(r.x);
-		v.Y = $parseFloat(r.y);
-		v.Z = $parseFloat(r.z);
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-	};
-	PVector.prototype.Set = function(cord) { return this.$val.Set(cord); };
-	PVector.ptr.prototype.Copy = function() {
-		var $ptr, r, v;
-		v = this;
-		r = v.data.copy();
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-	};
-	PVector.prototype.Copy = function() { return this.$val.Copy(); };
-	PVector.ptr.prototype.Sub = function(x, other) {
-		var $ptr, _1, _r, _r$1, _r$2, _r$3, _v, other, r, v, x, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _1 = $f._1; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _v = $f._v; other = $f.other; r = $f.r; v = $f.v; x = $f.x; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		v = this;
-		r = null;
-			_1 = other.$length;
-			/* */ if (_1 === (0)) { $s = 2; continue; }
-			/* */ if (_1 === (1)) { $s = 3; continue; }
-			/* */ if (_1 === (2)) { $s = 4; continue; }
-			/* */ $s = 5; continue;
-			/* if (_1 === (0)) { */ case 2:
-				_r = reflect.TypeOf(x).Kind(); /* */ $s = 11; case 11: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
-				if (_r === 14) { _v = true; $s = 10; continue s; }
-				_r$1 = reflect.TypeOf(x).Kind(); /* */ $s = 12; case 12: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
-				_v = _r$1 === 2; case 10:
-				/* */ if (_v) { $s = 7; continue; }
-				/* */ $s = 8; continue;
-				/* if (_v) { */ case 7:
-					_r$2 = reflect.TypeOf(x).Kind(); /* */ $s = 16; case 16: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
-					/* */ if (_r$2 === 14) { $s = 13; continue; }
-					_r$3 = reflect.TypeOf(x).Kind(); /* */ $s = 17; case 17: if($c) { $c = false; _r$3 = _r$3.$blk(); } if (_r$3 && _r$3.$blk !== undefined) { break s; }
-					/* */ if (_r$3 === 2) { $s = 14; continue; }
-					/* */ $s = 15; continue;
-					/* if (_r$2 === 14) { */ case 13:
-						r = v.data.sub($assertType(x, $Float64));
-						$s = 15; continue;
-					/* } else if (_r$3 === 2) { */ case 14:
-						r = v.data.sub($assertType(x, $Int));
-					/* } */ case 15:
-					$s = 9; continue;
-				/* } else { */ case 8:
-					r = v.data.sub($assertType(x, ptrType).data);
-				/* } */ case 9:
-				/* break; */ $s = 1; continue;
-				$s = 6; continue;
-			/* } else if (_1 === (1)) { */ case 3:
-				r = v.data.sub($assertType(x, $Float64), $assertType((0 >= other.$length ? $throwRuntimeError("index out of range") : other.$array[other.$offset + 0]), $Float64));
-				/* break; */ $s = 1; continue;
-				$s = 6; continue;
-			/* } else if (_1 === (2)) { */ case 4:
-				r = v.data.sub($assertType(x, $Float64), $assertType((0 >= other.$length ? $throwRuntimeError("index out of range") : other.$array[other.$offset + 0]), $Float64), $assertType((1 >= other.$length ? $throwRuntimeError("index out of range") : other.$array[other.$offset + 1]), $Float64));
-				/* break; */ $s = 1; continue;
-				$s = 6; continue;
-			/* } else { */ case 5:
-				r = null;
-				console.log("Error in sub vector method (1)");
-				/* break; */ $s = 1; continue;
-			/* } */ case 6:
-		case 1:
-		v.X = $parseFloat(r.x);
-		v.Y = $parseFloat(r.y);
-		v.Z = $parseFloat(r.z);
-		$s = -1; return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-		/* */ } return; } if ($f === undefined) { $f = { $blk: PVector.ptr.prototype.Sub }; } $f.$ptr = $ptr; $f._1 = _1; $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._v = _v; $f.other = other; $f.r = r; $f.v = v; $f.x = x; $f.$s = $s; $f.$r = $r; return $f;
-	};
-	PVector.prototype.Sub = function(x, other) { return this.$val.Sub(x, other); };
-	PVector.ptr.prototype.Mult = function(val) {
-		var $ptr, r, v, val;
-		v = this;
-		r = v.data.mult(val);
-		v.X = $parseFloat(r.x);
-		v.Y = $parseFloat(r.y);
-		v.Z = $parseFloat(r.z);
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-	};
-	PVector.prototype.Mult = function(val) { return this.$val.Mult(val); };
-	PVector.ptr.prototype.Div = function(val) {
-		var $ptr, r, v, val;
-		v = this;
-		r = v.data.div(val);
-		v.X = $parseFloat(r.x);
-		v.Y = $parseFloat(r.y);
-		v.Z = $parseFloat(r.z);
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-	};
-	PVector.prototype.Div = function(val) { return this.$val.Div(val); };
-	PVector.ptr.prototype.Mag = function() {
-		var $ptr, r, v;
-		v = this;
-		r = v.data.mag();
-		return $parseFloat(r);
-	};
-	PVector.prototype.Mag = function() { return this.$val.Mag(); };
-	PVector.ptr.prototype.MagSq = function() {
-		var $ptr, r, v;
-		v = this;
-		r = v.data.magSq();
-		return $parseFloat(r);
-	};
-	PVector.prototype.MagSq = function() { return this.$val.MagSq(); };
-	PVector.ptr.prototype.Dot = function(v2) {
-		var $ptr, r, v, v2;
-		v = this;
-		r = v.data.dot(v2.data);
-		return $parseFloat(r);
-	};
-	PVector.prototype.Dot = function(v2) { return this.$val.Dot(v2); };
-	PVector.ptr.prototype.Cross = function(v2) {
-		var $ptr, r, v, v2;
-		v = this;
-		r = v.data.cross(v2.data);
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-	};
-	PVector.prototype.Cross = function(v2) { return this.$val.Cross(v2); };
-	PVector.ptr.prototype.Dist = function(v2) {
-		var $ptr, r, v, v2;
-		v = this;
-		r = v.data.dist(v2.data);
-		return $parseFloat(r);
-	};
-	PVector.prototype.Dist = function(v2) { return this.$val.Dist(v2); };
-	PVector.ptr.prototype.Normalize = function() {
-		var $ptr, r, v;
-		v = this;
-		r = v.data.normalize();
-		v.X = $parseFloat(r.x);
-		v.Y = $parseFloat(r.y);
-		v.Z = $parseFloat(r.z);
-		return new PVector.ptr(r, $parseFloat(r.x), $parseFloat(r.y), $parseFloat(r.z));
-	};
-	PVector.prototype.Normalize = function() { return this.$val.Normalize(); };
 	LaunchApp = function() {
 		var $ptr, sketch;
 		sketch = (function(p) {
@@ -8169,9 +7906,7 @@ $packages["./Processing"] = (function() {
 	};
 	$pkg.LaunchApp = LaunchApp;
 	ptrType$2.methods = [{prop: "Delta", name: "Delta", pkg: "", typ: $funcType([], [$Float64], false)}];
-	ptrType.methods = [{prop: "Add", name: "Add", pkg: "", typ: $funcType([$emptyInterface, sliceType], [ptrType], true)}, {prop: "ToString", name: "ToString", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Set", name: "Set", pkg: "", typ: $funcType([sliceType$1], [ptrType], true)}, {prop: "Copy", name: "Copy", pkg: "", typ: $funcType([], [ptrType], false)}, {prop: "Sub", name: "Sub", pkg: "", typ: $funcType([$emptyInterface, sliceType], [ptrType], true)}, {prop: "Mult", name: "Mult", pkg: "", typ: $funcType([$Float64], [ptrType], false)}, {prop: "Div", name: "Div", pkg: "", typ: $funcType([$Float64], [ptrType], false)}, {prop: "Mag", name: "Mag", pkg: "", typ: $funcType([], [$Float64], false)}, {prop: "MagSq", name: "MagSq", pkg: "", typ: $funcType([], [$Float64], false)}, {prop: "Dot", name: "Dot", pkg: "", typ: $funcType([ptrType], [$Float64], false)}, {prop: "Cross", name: "Cross", pkg: "", typ: $funcType([ptrType], [ptrType], false)}, {prop: "Dist", name: "Dist", pkg: "", typ: $funcType([ptrType], [$Float64], false)}, {prop: "Normalize", name: "Normalize", pkg: "", typ: $funcType([], [ptrType], false)}];
 	Event.init("./Processing", [{prop: "data", name: "data", exported: false, typ: mapType, tag: ""}]);
-	PVector.init("./Processing", [{prop: "data", name: "data", exported: false, typ: ptrType$1, tag: ""}, {prop: "X", name: "X", exported: true, typ: $Float64, tag: ""}, {prop: "Y", name: "Y", exported: true, typ: $Float64, tag: ""}, {prop: "Z", name: "Z", exported: true, typ: $Float64, tag: ""}]);
 	$init = function() {
 		$pkg.$init = function() {};
 		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
@@ -8217,67 +7952,35 @@ $packages["./Processing"] = (function() {
 	return $pkg;
 })();
 $packages["main"] = (function() {
-	var $pkg = {}, $init, processing, Ball, ptrType, ptrType$1, sliceType, sliceType$1, sliceType$2, ball, newBall, setup, draw, mouseClicked, main;
+	var $pkg = {}, $init, processing, sliceType, sliceType$1, setup, draw, main;
 	processing = $packages["./Processing"];
-	Ball = $pkg.Ball = $newType(0, $kindStruct, "main.Ball", true, "main", true, function(Position_, Velocity_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Position = ptrType$1.nil;
-			this.Velocity = ptrType$1.nil;
-			return;
-		}
-		this.Position = Position_;
-		this.Velocity = Velocity_;
-	});
-	ptrType = $ptrType(Ball);
-	ptrType$1 = $ptrType(processing.PVector);
-	sliceType = $sliceType($Float64);
-	sliceType$1 = $sliceType($emptyInterface);
-	sliceType$2 = $sliceType($Int);
-	newBall = function() {
+	sliceType = $sliceType($emptyInterface);
+	sliceType$1 = $sliceType($Int);
+	setup = function() {
 		var $ptr;
-		return new Ball.ptr(processing.CreateVector(new sliceType([processing.MouseX, processing.MouseY])), processing.CreateVector(new sliceType([0.1, 0.3])));
+		processing.CreateCanvas(600, 600);
+		processing.Background(new sliceType([new $Int(230)]));
 	};
-	Ball.ptr.prototype.display = function() {
-		var $ptr, b;
-		b = this;
+	draw = function() {
+		var $ptr;
 		processing.StrokeWeight(4);
 		if (!processing.MouseIsPressed) {
 			processing.NoStroke();
 		} else {
-			processing.Stroke(new $String("rgba(139,195,74 ,1)"), new sliceType$2([]));
+			processing.Stroke(new $String("rgba(139,195,74 ,1)"), new sliceType$1([]));
 		}
 		processing.Line(new $Int(processing.PmouseX), new $Int(processing.PmouseY), new $Int(processing.MouseX), new $Int(processing.MouseY));
-	};
-	Ball.prototype.display = function() { return this.$val.display(); };
-	setup = function() {
-		var $ptr;
-		ball = newBall();
-		processing.CreateCanvas(600, 600);
-		processing.Background(new sliceType$1([new $Int(230)]));
-	};
-	draw = function() {
-		var $ptr;
-		ball.display();
-	};
-	mouseClicked = function() {
-		var $ptr;
-		console.log("clicked!");
 	};
 	main = function() {
 		var $ptr;
 		processing.Setup = setup;
 		processing.Draw = draw;
-		processing.MouseClicked = mouseClicked;
 		processing.LaunchApp();
 	};
-	ptrType.methods = [{prop: "updateLogic", name: "updateLogic", pkg: "main", typ: $funcType([], [], false)}, {prop: "display", name: "display", pkg: "main", typ: $funcType([], [], false)}];
-	Ball.init("", [{prop: "Position", name: "Position", exported: true, typ: ptrType$1, tag: ""}, {prop: "Velocity", name: "Velocity", exported: true, typ: ptrType$1, tag: ""}]);
 	$init = function() {
 		$pkg.$init = function() {};
 		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		$r = processing.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		ball = ptrType.nil;
 		if ($pkg === $mainPkg) {
 			main();
 			$mainFinished = true;
