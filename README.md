@@ -3,8 +3,15 @@
 
 > Processing with Go, using p5Js as core
 
-
 PGoJs is a binding/port from p5Js using gopherJs, the idea is create sketchs in web using Golang but easy and fast like processing framework.
+
+## Install
+Get with:
+
+```
+ go get -u -v github.com/bregydoc/PGoJs
+```
+
 
 ## How to use
 
@@ -33,7 +40,7 @@ You need import the PGoJs library, I recommended use this with different namespa
 package main
 
 import (
-	p "./Processing"
+	p "github.com/bregydoc/PGoJs/Processing"
 )
 
 func setup() {

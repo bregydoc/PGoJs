@@ -1,7 +1,7 @@
 package main
 
 import (
-	p "./Processing"
+	p "github.com/bregydoc/PGoJs/Processing"
 )
 
 func setup() {
