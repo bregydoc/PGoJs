@@ -88,7 +88,7 @@ I usually create an .sh file with these parameters, and build in only one step.
 
 ## Extra example
 Go idiomatic?
-```
+```go
 package main
 
 import (
@@ -157,5 +157,4 @@ func main() {
 }
 ```
 
-The previous code generate:
 ![Balls in gif](/pGoJsExample.gif)
