@@ -1,7 +1,8 @@
 package main
 
 import (
-	p "github.com/bregydoc/PGoJs/Processing"
+	//p "github.com/bregydoc/PGoJs/Processing"
+	p "../Processing"
 )
 
 type Ball struct {
@@ -51,7 +52,7 @@ func draw() {
 }
 
 func mousePressed() {
-	balls = append(balls, newBall(200, 200, 50))
+	balls = append(balls, newBall(float64(p.MouseX), float64(p.MouseY), 50))
 }
 
 func main() {

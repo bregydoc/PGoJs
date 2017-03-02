@@ -7699,11 +7699,11 @@ $packages["reflect"] = (function() {
 	$pkg.$init = $init;
 	return $pkg;
 })();
-$packages["./Processing"] = (function() {
+$packages["../Processing"] = (function() {
 	var $pkg = {}, $init, js, reflect, Event, PVector, ptrType, funcType, mapType, funcType$1, ptrType$1, funcType$2, ptrType$2, sliceType, sliceType$1, pG, Background, Fill, NoStroke, CreateCanvas, CreateVector, Random2D, LaunchApp, Ellipse;
 	js = $packages["github.com/gopherjs/gopherjs/js"];
 	reflect = $packages["reflect"];
-	Event = $pkg.Event = $newType(0, $kindStruct, "processing.Event", true, "./Processing", true, function(data_) {
+	Event = $pkg.Event = $newType(0, $kindStruct, "processing.Event", true, "../Processing", true, function(data_) {
 		this.$val = this;
 		if (arguments.length === 0) {
 			this.data = false;
@@ -7711,7 +7711,7 @@ $packages["./Processing"] = (function() {
 		}
 		this.data = data_;
 	});
-	PVector = $pkg.PVector = $newType(0, $kindStruct, "processing.PVector", true, "./Processing", true, function(data_, X_, Y_, Z_) {
+	PVector = $pkg.PVector = $newType(0, $kindStruct, "processing.PVector", true, "../Processing", true, function(data_, X_, Y_, Z_) {
 		this.$val = this;
 		if (arguments.length === 0) {
 			this.data = null;
@@ -8183,8 +8183,8 @@ $packages["./Processing"] = (function() {
 	$pkg.Ellipse = Ellipse;
 	ptrType$2.methods = [{prop: "Delta", name: "Delta", pkg: "", typ: $funcType([], [$Float64], false)}];
 	ptrType.methods = [{prop: "Add", name: "Add", pkg: "", typ: $funcType([$emptyInterface, sliceType], [ptrType], true)}, {prop: "ToString", name: "ToString", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Set", name: "Set", pkg: "", typ: $funcType([sliceType$1], [ptrType], true)}, {prop: "Copy", name: "Copy", pkg: "", typ: $funcType([], [ptrType], false)}, {prop: "Sub", name: "Sub", pkg: "", typ: $funcType([$emptyInterface, sliceType], [ptrType], true)}, {prop: "Mult", name: "Mult", pkg: "", typ: $funcType([$Float64], [ptrType], false)}, {prop: "Div", name: "Div", pkg: "", typ: $funcType([$Float64], [ptrType], false)}, {prop: "Mag", name: "Mag", pkg: "", typ: $funcType([], [$Float64], false)}, {prop: "MagSq", name: "MagSq", pkg: "", typ: $funcType([], [$Float64], false)}, {prop: "Dot", name: "Dot", pkg: "", typ: $funcType([ptrType], [$Float64], false)}, {prop: "Cross", name: "Cross", pkg: "", typ: $funcType([ptrType], [ptrType], false)}, {prop: "Dist", name: "Dist", pkg: "", typ: $funcType([ptrType], [$Float64], false)}, {prop: "Normalize", name: "Normalize", pkg: "", typ: $funcType([], [ptrType], false)}];
-	Event.init("./Processing", [{prop: "data", name: "data", exported: false, typ: mapType, tag: ""}]);
-	PVector.init("./Processing", [{prop: "data", name: "data", exported: false, typ: ptrType$1, tag: ""}, {prop: "X", name: "X", exported: true, typ: $Float64, tag: ""}, {prop: "Y", name: "Y", exported: true, typ: $Float64, tag: ""}, {prop: "Z", name: "Z", exported: true, typ: $Float64, tag: ""}]);
+	Event.init("../Processing", [{prop: "data", name: "data", exported: false, typ: mapType, tag: ""}]);
+	PVector.init("../Processing", [{prop: "data", name: "data", exported: false, typ: ptrType$1, tag: ""}, {prop: "X", name: "X", exported: true, typ: $Float64, tag: ""}, {prop: "Y", name: "Y", exported: true, typ: $Float64, tag: ""}, {prop: "Z", name: "Z", exported: true, typ: $Float64, tag: ""}]);
 	$init = function() {
 		$pkg.$init = function() {};
 		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
@@ -8231,7 +8231,7 @@ $packages["./Processing"] = (function() {
 })();
 $packages["main"] = (function() {
 	var $pkg = {}, $init, processing, Ball, ptrType, sliceType, ptrType$1, sliceType$1, sliceType$2, balls, newBall, setup, draw, mousePressed, main;
-	processing = $packages["./Processing"];
+	processing = $packages["../Processing"];
 	Ball = $pkg.Ball = $newType(0, $kindStruct, "main.Ball", true, "main", true, function(diameter_, position_, velocity_) {
 		this.$val = this;
 		if (arguments.length === 0) {
@@ -8265,8 +8265,6 @@ $packages["main"] = (function() {
 		}
 		_r = ball.position.Add(ball.velocity, new sliceType$2([])); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
 		_r;
-		console.log("Position: ", ball.position.ToString());
-		console.log("Velocity: ", ball.velocity.ToString());
 		$s = -1; return;
 		return;
 		/* */ } return; } if ($f === undefined) { $f = { $blk: Ball.ptr.prototype.updateLogic }; } $f.$ptr = $ptr; $f._r = _r; $f.ball = ball; $f.$s = $s; $f.$r = $r; return $f;
@@ -8305,7 +8303,7 @@ $packages["main"] = (function() {
 	};
 	mousePressed = function() {
 		var $ptr;
-		balls = $append(balls, newBall(200, 200, 50));
+		balls = $append(balls, newBall(processing.MouseX, processing.MouseY, 50));
 	};
 	main = function() {
 		var $ptr;
